@@ -147,6 +147,20 @@ class EditAuthProvider extends React.Component<Props, State> {
     });
   }
 
+  templateOkta = () => {
+    this.setState({
+      name: "Okta",
+      providerType: 1,
+      authUrl: "https://tenant.okta.com/oauth2/v1/authorize",
+      tokenUrl: "https://tenant.okta.com/oauth2/v1/token",
+      authStyle: 1,
+      scopes: "openid,email",
+      userInfoUrl: "https://tenant.okta.com/oauth/default/v1/userinfo",
+      userInfoEmailField: "email",
+      logoutUrl: "https://tenant.okta.com/oauth2/default/v1/logout"
+    });
+  }
+  
   templateKeycloak = () => {
     this.setState({
       name: "Keycloak",
@@ -284,6 +298,7 @@ class EditAuthProvider extends React.Component<Props, State> {
                 <Button variant="outline-secondary" onClick={this.templateGoogle}>Google</Button>
                 <Button variant="outline-secondary" onClick={this.templateMicrosoft}>Microsoft</Button>
                 <Button variant="outline-secondary" onClick={this.templateKeycloak}>Keycloak</Button>
+                <Button variant="outline-secondary" onClick={this.templateOkta}>Okta</Button>
               </ButtonGroup>
             </Col>
           </Form.Group>
